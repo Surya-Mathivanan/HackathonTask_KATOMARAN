@@ -2,61 +2,114 @@
 
 A cross-platform mobile application built with React Native and Firebase for efficient task management. This app provides a clean, modern interface similar to Google Tasks with comprehensive features for organizing and tracking your daily tasks.
 
-## 🚀 Features
+---
+
+## 📱 Features
 
 ### ✅ Authentication
-- **Google Sign-In**: Secure authentication using Firebase Auth
-- **Error Handling**: Clear error messages for login failures
-- **Auto Sign-Out**: Easy sign-out functionality
+- **Google Sign-In**: Secure and seamless authentication powered by Firebase Auth, enabling one-tap login.
+- **Error Handling**: Clear, descriptive error messages to guide users through login issues and failures.
+- **Auto Sign-Out**: Simple and secure logout functionality to end sessions easily.
 
 ### ✅ Task Management (CRUD Operations)
-- **Create Tasks**: Add new tasks with title, description, due date, and priority
-- **Read Tasks**: View all tasks with real-time updates
-- **Update Tasks**: Edit existing tasks with full field modification
-- **Delete Tasks**: Remove tasks with confirmation dialog
-- **Mark Complete**: Toggle task status between open and complete
-- **Priority Levels**: Low, Medium, High priority with color coding
+- **Create Tasks**: Effortlessly add new tasks with fields like title, description, due date, and priority level.
+- **Read Tasks**: Instantly view and sync tasks with real-time updates from Firestore.
+- **Update Tasks**: Modify task details completely, including all fields, for full control over edits.
+- **Delete Tasks**: Safely remove tasks using a confirmation dialog to avoid accidental deletions.
+- **Mark Complete**: Change task status with a single tap to track completed and pending tasks.
+- **Priority Levels**: Assign Low, Medium, or High priority with intuitive color coding for easy identification.
 
 ### ✅ User Interface
-- **Cross-Platform**: Works seamlessly on both Android and iOS
-- **Tab Navigation**: Filter tasks by All, Completed, and Pending
-- **Search Functionality**: Real-time search through task titles and descriptions
-- **Floating Action Button**: Quick access to add new tasks
-- **Pull-to-Refresh**: Refresh task list with pull gesture
-- **Swipe-to-Delete**: Intuitive swipe gesture for task deletion
-- **Empty States**: Contextual empty state screens for different filters
-- **Smooth Animations**: Fade-in animations for task list transitions
+- **Cross-Platform**: Designed to work smoothly on both Android and iOS devices with a consistent experience.
+- **Tab Navigation**: Organize and filter tasks efficiently using tabs like All, Completed, and Pending.
+- **Search Functionality**: Real-time, dynamic search to filter tasks by title or description effortlessly.
+- **Floating Action Button**: Easily accessible FAB to add new tasks from anywhere in the app.
+- **Pull-to-Refresh**: Instantly refresh your task list with a simple downward swipe gesture.
+- **Swipe-to-Delete**: Clean and intuitive swipe gesture for quickly deleting tasks.
+- **Empty States**: Thoughtfully designed empty screens for different filter views to guide user experience.
+- **Smooth Animations**: Subtle fade-in animations enhance the overall user interaction and feel.
 
 ### ✅ Extra Features
-- **Firebase Integration**: Real-time data synchronization with Firestore
-- **Offline Support**: Local caching with AsyncStorage for offline functionality
-- **Crash Reporting**: Firebase Crashlytics integration (configured)
-- **Responsive Design**: Optimized for various screen sizes
+- **Firebase Integration**: Backed by Firestore for fast, secure, and real-time cloud data syncing.
+- **Offline Support**: Tasks are cached locally using AsyncStorage, allowing full offline access.
+- **Crash Reporting**: Integrated Firebase Crashlytics to monitor and resolve unexpected crashes.
+- **Responsive Design**: Adaptive layout that provides a seamless experience across screen sizes and devices.
+
+---
+
+## 🔧 Tech Stack
+
+- **React Native (Expo)**
+- **Firebase Authentication**
+- **Cloud Firestore**
+- **AsyncStorage**
+- **React Navigation**
+- **Crashlytics**
+- **Lottie / Reanimated / Icons**
+
+---
 
 ## 📱 Screenshots
 
-*Note: Screenshots would be added here showing the app in action*
+<img width="1366" height="695" alt="Image" src="https://github.com/user-attachments/assets/fac3a376-d18d-4732-ba2a-4d7b8952dcec" />
+
+<img width="1366" height="697" alt="Image" src="https://github.com/user-attachments/assets/28ccaa6e-c080-4858-b064-e9e06c9f9454" />
+
+<img width="1366" height="698" alt="Image" src="https://github.com/user-attachments/assets/cf5f4e8e-9d1a-4e74-88e2-7b560dee5696" />
+
+<img width="1366" height="698" alt="Image" src="https://github.com/user-attachments/assets/59417a01-25b7-480e-bbfe-1f92715efb79" />
+
+---
 
 ## 🏗️ Architecture
 
 The app follows a modular architecture with clear separation of concerns:
 
 ```
-src/
-├── components/          # Reusable UI components
-│   ├── TaskItem.js     # Individual task display component
-│   └── EmptyState.js   # Empty state screens
-├── context/            # React Context for state management
-│   ├── AuthContext.js  # Authentication state management
-│   └── TaskContext.js  # Task data management
-├── navigation/         # Navigation configuration
-│   └── MainTabNavigator.js
-├── screens/            # Screen components
-│   ├── AuthScreen.js   # Login screen
-│   ├── TaskListScreen.js # Main task list with tabs
-│   ├── AddTaskScreen.js  # Add new task
-│   └── EditTaskScreen.js # Edit existing task
-└── utils/              # Utility functions (if needed)
+todoapp/
+├── .git/                        # Git version control folder
+├── .expo/                       # Expo local data
+├── .vercel/                     # Vercel deployment config (if used)
+├── .vscode/                     # VSCode editor settings
+├── android/                     # Android native project (if ejected)
+├── app/                         # Expo Router app directory (routes, layouts)
+│   ├── _layout.tsx
+│   ├── AppWrapper.js
+│   ├── index.js
+│   ├── login.js
+│   ├── sign-up.js
+│   ├── task-list.js
+│   └── ... (other route files)
+├── assets/                      # Images, fonts, icons, etc.
+├── components/                  # Reusable React Native components
+│   ├── TaskListScreen.js
+│   ├── LoginScreen.js
+│   ├── SignUpScreen.js
+│   ├── DateTimePickerWeb.js
+│   └── ... (other UI components)
+├── constants/                   # App-wide constants and styles
+│   ├── Colors.ts
+│   ├── GlobalStyles.ts
+│   └── GoogleAuth.js
+├── context/                     # React Contexts for state management
+│   ├── AuthContext.js
+│   └── ... (other contexts)
+├── firebase/                    # Firebase config and utilities
+│   └── config.js
+├── hooks/                       # Custom React hooks
+├── services/                    # Business logic, API, and storage services
+│   ├── TaskService.js
+│   └── ... (other services)
+├── scripts/                     # Utility scripts (if any)
+├── package.json                 # Project dependencies and scripts
+├── package-lock.json            # NPM lockfile
+├── app.json                     # Expo app configuration
+├── eas.json                     # EAS build configuration
+├── tsconfig.json                # TypeScript config (if using TS)
+├── eslint.config.js             # ESLint config
+├── expo-env.d.ts                # Expo TypeScript env types
+├── README.md                    # Project documentation
+├── .gitignore                   # Git ignore rules
 ```
 
 ### Architecture Diagram
@@ -93,8 +146,8 @@ src/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd todo-task-management
+   git clone <https://github.com/Surya-Mathivanan/HackathonTask_KATOMARAN>
+   cd todoapp
    ```
 
 2. **Install dependencies**
@@ -147,11 +200,14 @@ service cloud.firestore {
 
 ## 📦 APK Download
 
+APK Link : [https://expo.dev/accounts/surya-mathivanan/projects/todoapp/builds/c1733006-13f7-42ea-bc48-6d20cfabbdf3]
 *APK download link will be provided here after building the release version*
 
 ## 🎥 Demo Video
 
 **Loom Video**: *[https://www.loom.com/share/21e945456ae44a70984fd68747a7af61?sid=164e84da-55df-4b8d-8b91-47ed55e4d0c6]*
+
+https://streamable.com/rtn4k5
 
 The demo video covers:
 - App overview and navigation
@@ -204,57 +260,4 @@ This project is licensed under the MIT License.
 **Footer**: This project is a part of a hackathon run by https://www.katomaran.com
 ```
 
-I've created a comprehensive React Native Todo Task Management app with all the features you requested! Here's what I've built:
-
-## ✅ **Complete Feature Implementation**
-
-**Authentication:**
-- Google Sign-In with Firebase Auth
-- Error handling for login failures
-- Secure sign-out functionality
-
-**Task CRUD Operations:**
-- Full Create, Read, Update, Delete functionality
-- Task properties: title, description, dueDate, status, priority
-- Mark tasks as complete/incomplete
-- Real-time data synchronization with Firestore
-
-**User Interface:**
-- Clean, modern design similar to Google Tasks
-- Tab navigation (All, Completed, Pending)
-- Search bar with real-time filtering
-- Floating Action Button for adding tasks
-- Pull-to-refresh functionality
-- Swipe-to-delete with confirmation
-- Empty state screens for different contexts
-- Smooth animations using React Native Reanimated
-
-**Extra Features:**
-- Firebase Crashlytics integration (configured)
-- Offline support with AsyncStorage caching
-- Real-time updates across devices
-
-## 🏗️ **Architecture & Code Quality**
-
-- **Modular Structure**: Well-organized components, screens, and contexts
-- **State Management**: React Context API for clean state management
-- **Best Practices**: Functional components with arrow functions only
-- **Error Handling**: Comprehensive error handling throughout
-- **Performance**: Optimized re-renders and efficient data flow
-
-## 📱 **Cross-Platform Compatibility**
-
-The app is built with Expo and React Native, ensuring it works seamlessly on both Android and iOS with platform-specific optimizations.
-
-## 📋 **Setup Ready**
-
-The README.md includes:
-- Complete setup instructions
-- Architecture diagram
-- Firebase configuration steps
-- APK link placeholder
-- Loom video link placeholder
-- Footer with hackathon attribution
-
-The app is production-ready and follows modern React Native development practices. You can start development immediately by following the setup instructions in the README!
 
