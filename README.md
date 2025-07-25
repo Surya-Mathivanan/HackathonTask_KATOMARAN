@@ -151,7 +151,7 @@ service cloud.firestore {
 
 ## 🎥 Demo Video
 
-**Loom Video**: *[Demo video link will be provided here]*
+**Loom Video**: *[https://www.loom.com/share/21e945456ae44a70984fd68747a7af61?sid=164e84da-55df-4b8d-8b91-47ed55e4d0c6]*
 
 The demo video covers:
 - App overview and navigation
