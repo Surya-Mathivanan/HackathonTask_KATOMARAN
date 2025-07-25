@@ -200,8 +200,8 @@ service cloud.firestore {
 
 ## 📦 APK Download
 
-APK Link : [https://expo.dev/accounts/surya-mathivanan/projects/todoapp/builds/c1733006-13f7-42ea-bc48-6d20cfabbdf3]
-Download Drive Link : [https://drive.google.com/file/d/1s3O_mGvpi-Gf1REzdLbX8XGNrOx2AHAy/view?usp=sharing]
+ - APK Link : [https://expo.dev/accounts/surya-mathivanan/projects/todoapp/builds/c1733006-13f7-42ea-bc48-6d20cfabbdf3]
+ - Download Drive Link : [https://drive.google.com/file/d/1s3O_mGvpi-Gf1REzdLbX8XGNrOx2AHAy/view?usp=sharing]
 
 ## 🎥 Demo Video
 
