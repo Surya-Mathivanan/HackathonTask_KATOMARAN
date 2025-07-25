@@ -146,7 +146,7 @@ todoapp/
 
 1. **Clone the repository**
    ```bash
-   git clone <https://github.com/Surya-Mathivanan/HackathonTask_KATOMARAN>
+   git clone https://github.com/Surya-Mathivanan/HackathonTask_KATOMARAN
    cd todoapp
    ```
 
@@ -201,7 +201,7 @@ service cloud.firestore {
 ## 📦 APK Download
 
 APK Link : [https://expo.dev/accounts/surya-mathivanan/projects/todoapp/builds/c1733006-13f7-42ea-bc48-6d20cfabbdf3]
-*APK download link will be provided here after building the release version*
+Download Drive Link : [https://drive.google.com/file/d/1s3O_mGvpi-Gf1REzdLbX8XGNrOx2AHAy/view?usp=sharing]
 
 ## 🎥 Demo Video
 
