@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import * as Notifications from "expo-notifications";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
@@ -18,7 +19,7 @@ import {
   View,
 } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
-import { colors, globalStyles } from "../constants/GlobalStyles";
+import { colors } from "../constants/GlobalStyles";
 import { useAuth } from "../context/AuthContext";
 import {
   addTask,
@@ -27,6 +28,31 @@ import {
   updateTask,
 } from "../services/TaskService";
 import DateTimePickerWeb from "./DateTimePickerWeb";
+
+// Helper to schedule a notification (native only)
+async function scheduleTaskNotification(taskId, title, dueDate) {
+  if (Platform.OS === "web") return;
+  const triggerDate = new Date(dueDate);
+  if (triggerDate > new Date()) {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Task Reminder",
+        body: `"${title}" is due today!`,
+        sound: true,
+        data: { taskId },
+      },
+      trigger: {
+        date: triggerDate,
+      },
+    });
+  }
+}
+
+// Helper to cancel all notifications for a task (native only)
+async function cancelAllTaskNotifications() {
+  if (Platform.OS === "web") return;
+  await Notifications.cancelAllScheduledNotificationsAsync();
+}
 
 const TaskListScreen = () => {
   const { logout, currentUser } = useAuth();
@@ -43,6 +69,18 @@ const TaskListScreen = () => {
   const [priority, setPriority] = useState("low");
   const [editTaskId, setEditTaskId] = useState(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
+
+  // Ask for notification permissions on mount
+  useEffect(() => {
+    if (Platform.OS !== "web") {
+      (async () => {
+        const { status } = await Notifications.getPermissionsAsync();
+        if (status !== "granted") {
+          await Notifications.requestPermissionsAsync();
+        }
+      })();
+    }
+  }, []);
 
   useEffect(() => {
     console.log("Current user state:", currentUser);
@@ -100,6 +138,7 @@ const TaskListScreen = () => {
   const handleDeleteTask = async (id) => {
     try {
       await deleteTask(id, currentUser.uid);
+      await cancelAllTaskNotifications(); // For simplicity, cancel all and reschedule
       fetchTasks();
     } catch (error) {
       console.error("Error deleting task:", error);
@@ -140,6 +179,12 @@ const TaskListScreen = () => {
         await updateTask(editTaskId, taskData, currentUser.uid);
       } else {
         await addTask(currentUser.uid, taskData);
+      }
+      await cancelAllTaskNotifications(); // For simplicity, cancel all and reschedule
+      // Reschedule notifications for all tasks
+      const allTasks = await getTasks(currentUser.uid);
+      for (const t of allTasks) {
+        await scheduleTaskNotification(t.id, t.title, t.dueDate);
       }
 
       setModalVisible(false);
