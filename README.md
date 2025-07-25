@@ -50,7 +50,7 @@ A cross-platform mobile application built with React Native and Firebase for eff
 ---
 
 ## 📱 Screenshots
-*Mobile View -
+ - Mobile View:
 <img width="805" height="626" alt="Image" src="https://github.com/user-attachments/assets/1dba5057-9bf3-4bbb-b59c-57d453755258" />
 
 <img width="806" height="602" alt="Image" src="https://github.com/user-attachments/assets/d2ccf855-6b5a-4a63-8b27-b5fcbdd37cff" />
@@ -61,7 +61,7 @@ A cross-platform mobile application built with React Native and Firebase for eff
 
 <img width="804" height="605" alt="Image" src="https://github.com/user-attachments/assets/de3d90fd-5ea7-431b-bd65-e457823891f1" />
 ---
-*Web View -
+ - Web View:
 <img width="1366" height="695" alt="Image" src="https://github.com/user-attachments/assets/fac3a376-d18d-4732-ba2a-4d7b8952dcec" />
 
 <img width="1366" height="697" alt="Image" src="https://github.com/user-attachments/assets/28ccaa6e-c080-4858-b064-e9e06c9f9454" />
